@@ -1,0 +1,85 @@
+@import "~antd/dist/antd.css";
+
+.logo-p {
+  margin-right: 130px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+  .contract-box i {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner-one__btn {
+    display: block;
+    text-align: center;
+  }
+
+  .contact-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: normal;
+  }
+
+  .roadmap .row {
+    overflow: auto;
+  }
+
+  .sj {
+    display: none;
+  }
+}
+
+.contract-box i:hover {
+  cursor: pointer;
+}
+
+.banner-container {
+  max-width: 1450px !important;
+}
+
+.block-title p {
+  margin-top: 10px;
+}
+
+.contact-one .block-title h3 {
+  color: #fff;
+}
+
+.main-nav__navigation-box .icon img {
+  width: 22px;
+  height: 22px;
+}
+
+.lang-btn {
+  display: inline !important;
+  margin-left: 5px;
+}
+
+.main-nav__navigation-box .dd {
+  position: relative;
+}
+
+.Toastify__toast-body {
+  text-align: center;
+  font-size: 16px;
+}
+
+@keyframes loading {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.loading-text {
+  animation: loading 1.2s infinite ease;
+}
