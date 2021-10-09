@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 // import reportWebVitals from './reportWebVitals';
 
-import "normalize.css/normalize.css"
+import "normalize.css/normalize.css";
 import "./assets/css/animate.min.css";
 import "./assets/css/style.css";
 import "./assets/css/responsive.css";
@@ -12,6 +12,7 @@ import "./assets/css/fontawesome-all.min.css";
 import "tailwindcss/tailwind.css";
 import "animate.css/animate.min.css";
 
+import "./i18n/config";
 
 ReactDOM.render(
   <React.StrictMode>

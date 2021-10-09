@@ -7,45 +7,83 @@ import uni_logo from "../../assets/images/uni_logo.jpeg";
 import piggy_logo from "../../assets/images/piggy_logo.jpeg";
 import dodo_logo from "../../assets/images/dodo_logo.png";
 import aave_logo from "../../assets/images/J1YJtvdI_400x400.jpeg";
+import heat from "../../assets/images/icons/heat.svg";
+import heat_active from "../../assets/images/icons/heat_active.svg";
+import {useTranslation} from 'react-i18next';
 
 const Detail: React.FC = ({}) => {
-  const col = [
+  const {t,i18n} = useTranslation()
+  const col: any = [
     {
       title: "#",
       dataIndex: "index",
       key: "index",
+      align: "center",
+      render: function (text: any) {
+        return <div className="cell-td">{text}</div>;
+      },
     },
     {
-      title: "用户地址",
+      title() {
+        return t('USER')
+      },
       dataIndex: "address",
       key: "address",
+      align: "center",
+      render: function (text: any) {
+        return <div className="cell-td">{text}</div>;
+      },
     },
     {
-      title: "净值",
+      title() {
+        return t('NET WORTH')
+      },
       dataIndex: "value",
       key: "value",
+      align: "center",
+      render: function (text: any) {
+        return <div className="cell-td">{text}</div>;
+      },
     },
     {
-      title: "当前比例",
+      title() {
+        return t('SHARE')
+      },
       dataIndex: "cur_rate",
       key: "cur_rate",
+      align: "center",
+      render: function (text: any) {
+        return <div className="cell-td">{text}</div>;
+      },
     },
     {
-      title: "累计占比",
+      title() {
+        return t('CUMULATIVE SHARE')
+      },
       dataIndex: "top_rate",
       key: "top_rate",
+      align: "center",
+      render: function (text: any) {
+        return <div className="cell-td">{text}</div>;
+      },
     },
     {
-      title: "更新时间",
+      title() {
+        return t('UPDATED AT')
+      },
       dataIndex: "date",
       key: "date",
+      align: "center",
+      render: function (text: any) {
+        return <div className="cell-td">{text}</div>;
+      },
     },
   ];
 
   const data = [];
   const random = (x = 10) => Math.round(Math.random() * x);
-  for (let i = 0; i < 20; i++) {
 
+  for (let i = 0; i < 20; i++) {
     const random10 = Math.round(Math.random() * 10);
     const random100 = Math.round(Math.random() * 100);
     data.push({
@@ -55,7 +93,7 @@ const Detail: React.FC = ({}) => {
       value: `$${random100},2${random10}4,${random(1000)}`,
       cur_rate: `${random(100)}.${random(100)}%`,
       top_rate: `${random(100)}.${random(100)}%`,
-      date: `2021/10/${random10}  1${random(5)}:0${random(9)}`,
+      date: `2021/10/0${random(9)}  1${random(5)}:0${random(9)}`,
     });
   }
 
@@ -85,94 +123,109 @@ const Detail: React.FC = ({}) => {
     setToken(name);
   }, [name]);
   return (
-    <>
+    <div style={{paddingBottom: 80}}>
       <Header />
       <div className="detail-wrap">
         <div className="detail-box">
-          <Link to="/">
-            <i className="fas fa-angle-left" />
-            <span style={{ marginLeft: 15 }}>协议详情</span>
-          </Link>
-          <div className="top-title flex items-center mt-12">
-            <img className="toptitle-logo mr-4" src={logo} alt="" />
-            <span className="toptital-name mr-12">{token}</span>
-            <span className="detail-tag mr-2">DEX</span>
-            <span className="detail-tag">AMM</span>
-          </div>
-          <div className="detail-sub flex">
-            <a
-              className="spliteline splitelinea flex"
-              href={url}
-              target="_blank"
-            >
-              {url}
-            </a>
-            <span className="spliteline flex">
-              <span className="label-1">所在链</span>
-              <span>Ethereum</span>
-            </span>
-            <span className="spliteline flex">
-              <span className="label-1">平台币</span>
-              <img className="logo label-1" src={logo} alt="" />
-              <span>{token}</span>
-            </span>
-          </div>
-          <div className="detail-sub flex">
-            <span>
-              <span className="label-1 e">上线时间</span>
-              <span className="label-detail">2020/01/02</span>
-            </span>
-            <span className="ml-4">
-              <span className="label-1 e">用户总数</span>
-              <span className="label-detail">{'1'+random(10000)}</span>
-            </span>
-            <span className="ml-4">
-              <span className="label-1 e">24小时用户数</span>
-              <span className="label-detail">{random(3000)}</span>
-            </span>
-          </div>
-
-          <div className="mt-20">
-            <span className="s1 mr-8">用户存款</span>
-            <span className="s2">{`$${random(100)},`+random(1000)}</span>
-          </div>
-
-          <div className="mt-4">
-            <Table dataSource={data} columns={col} pagination={false} />
-          </div>
-
-          <div className="mt-10 grid gap-5">
-            <div className=" flex items-center ">
-              <span className="mr-4 label-1 e flex">Twitter热度:</span>
-              <span className="flex gap-2 badge">
-                <i className="fas fa-heart" />
-                <i className="fas fa-heart" />
-                <i className="fas fa-heart" />
+          <div className="p50">
+            <Link to="/" className="flex items-center">
+              <i className="fas fa-angle-left" style={{fontSize: 16}}/>
+              <span style={{ marginLeft: 15 }}>{t('Protocol Detail')}</span>
+            </Link>
+            <div className="top-title flex items-center mt-12">
+              <img className="toptitle-logo mr-4" src={logo} alt="" />
+              <span className="toptital-name mr-12">{token}</span>
+              <span className="detail-tag mr-2">DEX</span>
+              <span className="detail-tag">AMM</span>
+            </div>
+            <div className="detail-sub flex">
+              <a
+                className="spliteline splitelinea flex"
+                href={url}
+                target="_blank"
+              >
+                {url}
+              </a>
+              <span className="spliteline flex">
+                <span className="label-1">{t('On the chain')}</span>
+                <span>Ethereum</span>
+              </span>
+              <span className="spliteline flex">
+                <span className="label-1">{t('Platform token')}</span>
+                <img className="logo label-1" src={logo} alt="" />
+                <span>{token}</span>
               </span>
             </div>
-            <div className=" flex items-center badge">
-              <span className="mr-4 label-1 e flex">Telegram热度:</span>
-              <span className="flex gap-2">
-                <i className="fas fa-heart" />
-                <i className="fas fa-heart" />
-                <i className="fas fa-heart" />
-                <i className="fas fa-heart" />
+            <div className="detail-sub flex">
+              <span>
+                <span className="label-1 e">{t('Genesis date')}</span>
+                <span className="label-detail">2020/01/02</span>
+              </span>
+              <span className="ml-4">
+                <span className="label-1 e">{t('Total users')}</span>
+                <span className="label-detail">{"1" + random(10000)}</span>
+              </span>
+              <span className="ml-4">
+                <span className="label-1 e">{t('24h Users')}</span>
+                <span className="label-detail">{random(3000)}</span>
               </span>
             </div>
-            <div className=" flex items-center">
-              <span className="mr-4 label-1 e flex">Twitter情绪数据:</span>
-              <a href="/">
+
+            <div className="mt-20">
+              <span className="s1 mr-8">{t('User deposits')}</span>
+              <span className="s2">{`$${random(100)},` + random(1000)}</span>
+            </div>
+          </div>
+          <div className="table-box mt-4">
+            <Table
+              className="table-wrap"
+              dataSource={data}
+              columns={col}
+              pagination={false}
+              rowClassName="table-row"
+            />
+          </div>
+
+          <div className="mt-10 grid gap-5 p50 mb-10">
+            <div className="flex mb-10">
+              <div className="mr-10 flex items-center ">
+                <i className="label-1-icon fab fa-twitter" />
+                <span className="mr-4 label-1 e flex">{t('Twitter Heat')}:</span>
+                <span className="flex gap-2 badge">
+                <img src={heat_active} />
+                <img src={heat_active} />
+                <img src={heat_active} />
+                <img src={heat_active} />
+                <img src={heat} alt=""/>
+              </span>
+              </div>
+              <div className=" flex items-center badge">
+                <i className="label-1-icon fab fa-telegram-plane" />
+                <span className="mr-4 label-1 e flex">{t('Telegram Heat')}:</span>
+                <span className="flex gap-2">
+                <img src={heat_active} />
+                <img src={heat_active} />
+                <img src={heat_active} />
+                <img src={heat} />
+                <img src={heat} alt=""/>
+              </span>
+              </div>
+            </div>
+
+            <div className="data items-center">
+              <div className="mr-4 label-1 e">{t('Twitter Sentiment Data')}</div>
+              <a className="" href="/">
                 https://ipfs.io/ipfs/MrnPLzHJ7rjddh2MZxAQmZjA7Go4WyJGqVXcbuA5GRtrx8
               </a>
             </div>
-            <div className=" flex items-center">
-              <span className="mr-4 label-1 e flex">持币地址:</span>
+            <div className="data items-center">
+              <div className="mr-4 label-1 e">{t('Holders Address')}</div>
               <a href="/">
                 https://ipfs.io/ipfs/GRtrx8Qm7rjddh2MZxAXcbZjA7Go4WyJGqVzHJuAMrnPL5
               </a>
             </div>
-            <div className=" flex items-center">
-              <span className="mr-4 label-1 e flex">链上获利情况:</span>
+            <div className="data items-center">
+              <div className="mr-4 label-1 e">{t('Profitability On The Chain')}</div>
               <a href="/">
                 https://ipfs.io/ipfs/VzHJ7rjddbuAMrnPL5GRtrx8QmZjA7Go4WyJGqh2MZxAXc
               </a>
@@ -180,7 +233,7 @@ const Detail: React.FC = ({}) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
