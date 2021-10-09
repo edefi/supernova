@@ -9,6 +9,7 @@ import dodo_logo from "../../assets/images/dodo_logo.png";
 import aave_logo from "../../assets/images/J1YJtvdI_400x400.jpeg";
 import heat from "../../assets/images/icons/heat.svg";
 import heat_active from "../../assets/images/icons/heat_active.svg";
+import eth from "../../assets/images/eth.svg";
 import {useTranslation} from 'react-i18next';
 
 const Detail: React.FC = ({}) => {
@@ -138,19 +139,20 @@ const Detail: React.FC = ({}) => {
               <span className="detail-tag mr-2">DEX</span>
               <span className="detail-tag">AMM</span>
             </div>
-            <div className="detail-sub flex">
+            <div className="detail-sub flex items-center">
               <a
-                className="spliteline splitelinea flex"
+                className="spliteline splitelinea flex items-center"
                 href={url}
                 target="_blank"
               >
                 {url}
               </a>
-              <span className="spliteline flex">
+              <span className="spliteline flex items-center">
                 <span className="label-1">{t('On the chain')}</span>
+                <img className="label-1" src={eth} alt=""/>
                 <span>Ethereum</span>
               </span>
-              <span className="spliteline flex">
+              <span className="spliteline flex items-center">
                 <span className="label-1">{t('Platform token')}</span>
                 <img className="logo label-1" src={logo} alt="" />
                 <span>{token}</span>

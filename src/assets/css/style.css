@@ -4904,7 +4904,7 @@ a:visited {
 }
 
 .splitelinea {
-  color: #40a9ff;
+  color: #4F8AFF;
 }
 
 .spliteline .logo {
@@ -4999,7 +4999,7 @@ a:visited {
 }
 
 .ant-table-thead > tr > th {
-  background: transparent;
+  background: transparent!important;
 }
 
 .label-1-icon {
