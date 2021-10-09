@@ -24,7 +24,7 @@ const SearchBar: React.FC = () => {
   return (
     <>
       <div className="search-bar ">
-        <div className="search-btn">
+        <div className="search-btn overflow-hidden">
           <img src={search_icon} alt="" />
           <input type="text" placeholder="SEARCH..." />
         </div>
