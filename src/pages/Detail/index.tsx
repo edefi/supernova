@@ -42,169 +42,45 @@ const Detail: React.FC = ({}) => {
     },
   ];
 
-  const data = [
-    {
-      key: "1",
-      index: "1",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "2",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "3",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "4",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "5",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "6",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "7",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "8",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "9",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "10",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "11",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "12",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "13",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "14",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "15",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-    {
-      key: "1",
-      index: "16",
-      address: "0x038q…0400",
-      value: "$6.506,284,678",
-      cur_rate: "58.77%",
-      top_rate: "50.77%",
-      date: "2021/10/08  14:53",
-    },
-  ];
+  const data = [];
+  const random = (x = 10) => Math.round(Math.random() * x);
+  for (let i = 0; i < 20; i++) {
+
+    const random10 = Math.round(Math.random() * 10);
+    const random100 = Math.round(Math.random() * 100);
+    data.push({
+      key: i + 1,
+      index: i + 1,
+      address: `0x${random(1000)}q…${random(10000)}`,
+      value: `$${random100},2${random10}4,${random(1000)}`,
+      cur_rate: `${random(100)}.${random(100)}%`,
+      top_rate: `${random(100)}.${random(100)}%`,
+      date: `2021/10/${random10}  1${random(5)}:0${random(9)}`,
+    });
+  }
 
   const [logo, setLogo] = useState<any>();
   const [token, setToken] = useState<any>();
+  const [url, setUrl] = useState<any>();
 
   let { name } = useParams<any>();
 
   useEffect(() => {
     if (name === "UNISWAP") {
       setLogo(uni_logo);
+      setUrl("https://uniswap.org/");
     } else if (name === "1INCH") {
       setLogo(inch_logo);
+      setUrl("https://app.1inch.io");
     } else if (name === "AAVE") {
       setLogo(aave_logo);
+      setUrl("https://aave.com");
     } else if (name === "DODO") {
       setLogo(dodo_logo);
+      setUrl("https://dodoex.io");
     } else if (name === "WEPIGGY") {
       setLogo(piggy_logo);
+      setUrl("https://www.wepiggy.com");
     }
     setToken(name);
   }, [name]);
@@ -226,10 +102,10 @@ const Detail: React.FC = ({}) => {
           <div className="detail-sub flex">
             <a
               className="spliteline splitelinea flex"
-              href="https://app.1inch.io"
+              href={url}
               target="_blank"
             >
-              https://app.1inch.io
+              {url}
             </a>
             <span className="spliteline flex">
               <span className="label-1">所在链</span>
@@ -248,17 +124,17 @@ const Detail: React.FC = ({}) => {
             </span>
             <span className="ml-4">
               <span className="label-1 e">用户总数</span>
-              <span className="label-detail">8982</span>
+              <span className="label-detail">{'1'+random(10000)}</span>
             </span>
             <span className="ml-4">
               <span className="label-1 e">24小时用户数</span>
-              <span className="label-detail">1231</span>
+              <span className="label-detail">{random(3000)}</span>
             </span>
           </div>
 
           <div className="mt-20">
             <span className="s1 mr-8">用户存款</span>
-            <span className="s2">$84,982</span>
+            <span className="s2">{`$${random(100)},`+random(1000)}</span>
           </div>
 
           <div className="mt-4">
