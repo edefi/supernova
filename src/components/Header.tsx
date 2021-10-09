@@ -45,7 +45,6 @@ const Header = ({ open, btnClass, toggleMenu }: any) => {
                     <NavLinks toggleMenu={toggleMenu} />
                 </div>
                 <div className="main-nav__right">
-                    1
                 </div>
             </div>
         </header>

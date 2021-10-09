@@ -4943,3 +4943,7 @@ a:visited {
   color: #262935;
   letter-spacing: 0;
 }
+
+.badge {
+ color: #ec3f3f;
+}

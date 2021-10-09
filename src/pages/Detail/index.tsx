@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import { Table } from "antd";
-import { Link } from "react-router-dom";
-import logo from "../../assets/images/LwPtET72_400x400.jpeg";
+import { Link, useParams } from "react-router-dom";
+import inch_logo from "../../assets/images/LwPtET72_400x400.jpeg";
+import uni_logo from "../../assets/images/uni_logo.jpeg";
+import piggy_logo from "../../assets/images/piggy_logo.jpeg";
+import dodo_logo from "../../assets/images/dodo_logo.png";
+import aave_logo from "../../assets/images/J1YJtvdI_400x400.jpeg";
 
 const Detail: React.FC = ({}) => {
   const col = [
@@ -185,6 +189,25 @@ const Detail: React.FC = ({}) => {
     },
   ];
 
+  const [logo, setLogo] = useState<any>();
+  const [token, setToken] = useState<any>();
+
+  let { name } = useParams<any>();
+
+  useEffect(() => {
+    if (name === "UNISWAP") {
+      setLogo(uni_logo);
+    } else if (name === "1INCH") {
+      setLogo(inch_logo);
+    } else if (name === "AAVE") {
+      setLogo(aave_logo);
+    } else if (name === "DODO") {
+      setLogo(dodo_logo);
+    } else if (name === "WEPIGGY") {
+      setLogo(piggy_logo);
+    }
+    setToken(name);
+  }, [name]);
   return (
     <>
       <Header />
@@ -196,7 +219,7 @@ const Detail: React.FC = ({}) => {
           </Link>
           <div className="top-title flex items-center mt-12">
             <img className="toptitle-logo mr-4" src={logo} alt="" />
-            <span className="toptital-name mr-12">1inch</span>
+            <span className="toptital-name mr-12">{token}</span>
             <span className="detail-tag mr-2">DEX</span>
             <span className="detail-tag">AMM</span>
           </div>
@@ -215,7 +238,7 @@ const Detail: React.FC = ({}) => {
             <span className="spliteline flex">
               <span className="label-1">平台币</span>
               <img className="logo label-1" src={logo} alt="" />
-              <span>1inch</span>
+              <span>{token}</span>
             </span>
           </div>
           <div className="detail-sub flex">
@@ -240,6 +263,44 @@ const Detail: React.FC = ({}) => {
 
           <div className="mt-4">
             <Table dataSource={data} columns={col} pagination={false} />
+          </div>
+
+          <div className="mt-10 grid gap-5">
+            <div className=" flex items-center ">
+              <span className="mr-4 label-1 e flex">Twitter热度:</span>
+              <span className="flex gap-2 badge">
+                <i className="fas fa-heart" />
+                <i className="fas fa-heart" />
+                <i className="fas fa-heart" />
+              </span>
+            </div>
+            <div className=" flex items-center badge">
+              <span className="mr-4 label-1 e flex">Telegram热度:</span>
+              <span className="flex gap-2">
+                <i className="fas fa-heart" />
+                <i className="fas fa-heart" />
+                <i className="fas fa-heart" />
+                <i className="fas fa-heart" />
+              </span>
+            </div>
+            <div className=" flex items-center">
+              <span className="mr-4 label-1 e flex">Twitter情绪数据:</span>
+              <a href="/">
+                https://ipfs.io/ipfs/MrnPLzHJ7rjddh2MZxAQmZjA7Go4WyJGqVXcbuA5GRtrx8
+              </a>
+            </div>
+            <div className=" flex items-center">
+              <span className="mr-4 label-1 e flex">持币地址:</span>
+              <a href="/">
+                https://ipfs.io/ipfs/GRtrx8Qm7rjddh2MZxAXcbZjA7Go4WyJGqVzHJuAMrnPL5
+              </a>
+            </div>
+            <div className=" flex items-center">
+              <span className="mr-4 label-1 e flex">链上获利情况:</span>
+              <a href="/">
+                https://ipfs.io/ipfs/VzHJ7rjddbuAMrnPL5GRtrx8QmZjA7Go4WyJGqh2MZxAXc
+              </a>
+            </div>
           </div>
         </div>
       </div>
