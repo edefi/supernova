@@ -599,8 +599,8 @@ a:visited {
   padding-right: 15px;
   width: 100%;
   max-width: 1450px;
-  margin-left: 100px;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 0 84px;
 }
 
 @media (max-width: 1550px) {
@@ -5049,4 +5049,8 @@ tr.ant-table-row:hover .cell-td {
   border-bottom: 2px solid #f0f2f3 !important;
   border-bottom: 2px inset #ececec !important;
   transition: border-bottom-color 0.8s;
+}
+
+.main-nav__right button {
+  padding-right: 0;
 }
