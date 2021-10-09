@@ -4859,7 +4859,6 @@ a:visited {
   padding: 0 80px;
   margin: 0 auto;
   margin-top: -30px;
-
 }
 
 .detail-box {
@@ -4907,7 +4906,7 @@ a:visited {
 }
 
 .splitelinea {
-  color: #4F8AFF;
+  color: #4f8aff;
 }
 
 .spliteline .logo {
@@ -4923,7 +4922,7 @@ a:visited {
 .label-1.e {
   font-family: SourceHanSansCN-Medium;
   font-size: 14px;
-  color: #595F6B;
+  color: #595f6b;
   letter-spacing: 0;
 }
 
@@ -4990,10 +4989,10 @@ a:visited {
 
 .cell-td {
   background: #ffffff !important;
-  /*border-top: 1px solid #F0F2F3!important;*/
-  border-bottom: 1px solid #f0f2f3 !important;
-  border-bottom: 1px inset #ececec !important;
   padding: 24px 16px;
+  border-bottom: 2px solid transparent !important;
+  border-bottom: 2px inset transparent !important;
+  transition: border-bottom-color 0.8s;
 }
 
 .ant-table-tbody > tr > td,
@@ -5002,11 +5001,11 @@ a:visited {
 }
 
 .ant-table-thead > tr > th {
-  background: transparent!important;
+  background: transparent !important;
 }
 
 .label-1-icon {
-  color: #595F6B;
+  color: #595f6b;
   font-size: 16px;
   margin-right: 5px;
 }
@@ -5014,10 +5013,40 @@ a:visited {
 .data a {
   font-family: Inter-Regular_Medium;
   font-size: 12px;
-  color: #9B9B9B;
+  color: #9b9b9b;
   letter-spacing: 0;
 }
 
 input {
   outline: none;
+}
+
+.text-gray-1 {
+  color: #7d859a !important;
+}
+
+.text-gray-2 {
+  color: #8e96a9 !important;
+}
+
+.text-gray-3 {
+  color: #9097aa !important;
+}
+
+.text-gray-3 {
+  color: #595f6b !important;
+}
+
+.ant-table-thead > tr > th {
+  color: #9097aa !important;
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: transparent !important;
+}
+
+tr.ant-table-row:hover .cell-td {
+  border-bottom: 2px solid #f0f2f3 !important;
+  border-bottom: 2px inset #ececec !important;
+  transition: border-bottom-color 0.8s;
 }

@@ -148,33 +148,33 @@ const Detail: React.FC = ({}) => {
                 {url}
               </a>
               <span className="spliteline flex items-center">
-                <span className="label-1">{t('On the chain')}</span>
+                <span className="label-1 text-gray-1">{t('On the chain')}</span>
                 <img className="label-1" src={eth} alt=""/>
                 <span>Ethereum</span>
               </span>
               <span className="spliteline flex items-center">
-                <span className="label-1">{t('Platform token')}</span>
+                <span className="label-1 text-gray-1">{t('Platform token')}</span>
                 <img className="logo label-1" src={logo} alt="" />
                 <span>{token}</span>
               </span>
             </div>
             <div className="detail-sub flex">
               <span>
-                <span className="label-1 e">{t('Genesis date')}</span>
+                <span className="label-1 e text-gray-2">{t('Genesis date')}</span>
                 <span className="label-detail">2020/01/02</span>
               </span>
               <span className="ml-4">
-                <span className="label-1 e">{t('Total users')}</span>
+                <span className="label-1 e text-gray-2">{t('Total users')}</span>
                 <span className="label-detail">{"1" + random(10000)}</span>
               </span>
               <span className="ml-4">
-                <span className="label-1 e">{t('24h Users')}</span>
+                <span className="label-1 e text-gray-2">{t('24h Users')}</span>
                 <span className="label-detail">{random(3000)}</span>
               </span>
             </div>
 
             <div className="mt-20">
-              <span className="s1 mr-8">{t('User deposits')}</span>
+              <span className="s1 mr-8 text-gray-2">{t('User deposits')}</span>
               <span className="s2">{`$${random(100)},` + random(1000)}</span>
             </div>
           </div>
